@@ -64,6 +64,14 @@ public class SendCommandToServer {
                 .withConfig(getConfig())
                 .withActionProvider(new UserInputAction(args))
                 .start();
-    }
+    } //main
+    //in wrong place?
+    //method to sum first two values in given array
+    public static int sum(int[] param) {
+    	//checks inputs both between 0, 100 inclusive
+    	if (param[0] >= 0 && param[0] <= 100 && param[1] >= 0 && param[1] <= 100) {
+    		return param[0] + param[1];
+    	}
+    } //sum
 
 }

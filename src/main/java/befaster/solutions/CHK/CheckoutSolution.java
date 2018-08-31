@@ -9,30 +9,28 @@ public class CheckoutSolution {
         int numB = 0;
         int numC = 0;
         int numD = 0;
-    	
-        //parse SKU string
-        char[] items = skus.toCharArray();
         
         //iterate over elements
-        for (int i=0; i<items.length; i++) {
-        	switch (items[i]) {
-        	case 1: items[i] = "A".charAt(0);
+        for (int i=0; i<skus.length(); i++) {
+        	char c = skus.charAt(i);
+        	switch (c) {
+        	case 1: c = "A".charAt(0);
         		numA +=1;
         		break;
         		
-        	case 2: items[i] = "B".charAt(0);
+        	case 2: c = "B".charAt(0);
     			numB +=1;
     			break;
     		
-        	case 3: items[i] = "C".charAt(0);
+        	case 3: c = "C".charAt(0);
     			numC +=1;
     			break;
     		
-        	case 4: items[i] = "D".charAt(0);
+        	case 4: c = "D".charAt(0);
     			numD +=1;
     			break;
     			
-        	case 5: items[i] = "".charAt(0);
+        	case 5: c = "".charAt(0);
         		break;
         		
         	default:

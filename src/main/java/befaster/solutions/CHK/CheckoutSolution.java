@@ -38,7 +38,21 @@ public class CheckoutSolution {
         	}
         }
         //calculate discounts
+        while (numA >=3) {
+        	numA -= 3;
+        	sum += 130;
+        }
         
+        while (numB >=2) {
+        	numB -= 2;
+        	sum += 45;
+        }
+        
+        //calculate remaining sum
+        sum += numA * 50;
+        sum += numB * 30;
+        sum += numC * 20;
+        sum += numD * 15;
         
     	return sum;
 

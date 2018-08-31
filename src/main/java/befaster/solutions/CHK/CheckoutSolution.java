@@ -9,11 +9,13 @@ public class CheckoutSolution {
         int numB = 0;
         int numC = 0;
         int numD = 0;
+        int numE = 0;
         
         Character cA = new Character('A');
         Character cB = new Character('B');
         Character cC = new Character('C');
         Character cD = new Character('D');
+        Character cE = new Character('E');
         
         //iterate over elements
         for (int i=0; i<skus.length(); i++) {
@@ -34,14 +36,30 @@ public class CheckoutSolution {
         		numD++;
         		inOK = true;
         	}
+        	if (skus.charAt(i) == cE) {
+        		numE++;
+        		inOK = true;
+        	}
         	if (inOK == false ) {	
         		return -1; //invalid input in given string	
         	}
         }//for
         //calculate discounts
+        //this is first to give the best deal to customers
+        while (numA >=5) {
+        	numA -= 5;
+        	sum += 200;
+        }
+        
         while (numA >=3) {
         	numA -= 3;
         	sum += 130;
+        }
+        
+        //similarly, E before B
+        while (numE >=2) {
+        	numB -= 1;
+        	//no sum increase; decrease chargeable B's by 1 for every 2 E's
         }
         
         while (numB >=2) {
@@ -54,6 +72,7 @@ public class CheckoutSolution {
         sum += numB * 30;
         sum += numC * 20;
         sum += numD * 15;
+        sum += numE * 40;
         
     	return sum;
 

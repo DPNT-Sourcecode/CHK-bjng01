@@ -17,31 +17,26 @@ public class CheckoutSolution {
         
         //iterate over elements
         for (int i=0; i<skus.length(); i++) {
-        	Character c = skus.charAt(i);
-        	switch (c) {
-        	case 1: c.equals(cA);
-        		numA +=1;
-        		break;
-        		
-        	case 2: c.equals(cB);
-    			numB +=1;
-    			break;
-    		
-        	case 3: c.equals(cC);
-    			numC +=1;
-    			break;
-    		
-        	case 4: c.equals(cD);
-    			numD +=1;
-    			break;
-    			
-//        	case 5: c.equals(c); //support for ""?
-       // 		break;
-        		
-        	default:
-        		return -1; //invalid input in given string
-        		
-        	}//switch
+        	boolean inOK = false;
+        	if (skus.charAt(i) == cA) {
+        		numA++;
+        		inOK = true;
+        	}
+        	if (skus.charAt(i) == cB) {
+        		numB++;
+        		inOK = true;
+        	}
+        	if (skus.charAt(i) == cC) {
+        		numC++;
+        		inOK = true;
+        	}
+        	if (skus.charAt(i) == cD) {
+        		numD++;
+        		inOK = true;
+        	}
+        	if (inOK == false ) {	
+        		return -1; //invalid input in given string	
+        	}
         }//for
         //calculate discounts
         while (numA >=3) {

@@ -31,12 +31,15 @@ public class CheckoutSolution {
         	case 4: items[i] = "D".charAt(0);
     			numD +=1;
     			break;
+    			
+        	case 5: items[i] = "".charAt(0);
+        		break;
         		
         	default:
         		return -1; //invalid input in given string
         		
-        	}
-        }
+        	}//switch
+        }//for
         //calculate discounts
         while (numA >=3) {
         	numA -= 3;

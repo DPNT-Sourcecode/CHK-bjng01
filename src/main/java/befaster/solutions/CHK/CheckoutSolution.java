@@ -179,10 +179,10 @@ public class CheckoutSolution {
         	sum += 45;
         }
         
-        // K
+        // K // indv and discount prices changes since last part
         while (alphabet[10] >=2) {
         	alphabet[10] -= 2;
-        	sum += 150;
+        	sum += 120;
         }
         
         // N
@@ -246,7 +246,7 @@ public class CheckoutSolution {
         sum += alphabet[7] * 10;
         sum += alphabet[8] * 35;
         sum += alphabet[9] * 60;
-        sum += alphabet[10] * 80;
+        sum += alphabet[10] * 70;
         sum += alphabet[11] * 90;
         sum += alphabet[12] * 15;
         sum += alphabet[13] * 40;
@@ -268,6 +268,10 @@ public class CheckoutSolution {
         indvSum += alphabet[25] * 50;
         
         int grpSum = 0;
+        boolean grpDiscountActive = false;
+        if (numGrp >= 3) {
+        	grpDiscountActive = true;
+        }
         
         while (numGrp >= 3) {
         	grpSum += 45;
@@ -275,7 +279,7 @@ public class CheckoutSolution {
         }
         
         //apply best offer
-        if (grpSum <= indvSum) {
+        if (grpSum <= indvSum && grpDiscountActive) { //need this or we use grpSum = 0
         	sum += grpSum;
         } else {
         	sum += indvSum;

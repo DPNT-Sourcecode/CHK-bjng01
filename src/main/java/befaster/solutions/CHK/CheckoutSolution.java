@@ -123,6 +123,7 @@ public class CheckoutSolution {
         
         //calculate discounts
         //this is first to give the best deal to customers
+        // A
         while (alphabet[0] >=5) {
         	alphabet[0] -= 5;
         	sum += 200;
@@ -133,6 +134,7 @@ public class CheckoutSolution {
         	sum += 130;
         }
         
+        // E
         //infinite loop...
         //need a copy of count of E's
         int cpyNumE = alphabet[4];
@@ -146,16 +148,37 @@ public class CheckoutSolution {
         	//no sum increase; decrease chargeable B's by 1 for every 2 E's
         }
         
+        // B
         while (alphabet[1] >=2) {
         	alphabet[1] -= 2;
         	sum += 45;
         }
         
+        // F
         //code applies discount in same way as for A, B etc despite rewording for customers
         while (alphabet[5] >= 3) {
         	alphabet[5] -= 3;
-        	sum += (10 * 2);
+        	sum += (20);
         }
+        
+        //again, apply better discount first
+        // H
+        while (alphabet[7] >=10) {
+        	alphabet[7] -= 10;
+        	sum += 80;
+        }
+        
+        while (alphabet[7] >=5) {
+        	alphabet[7] -= 5;
+        	sum += 45;
+        }
+        
+        // K
+        while (alphabet[10] >=2) {
+        	alphabet[10] -= 2;
+        	sum += 150;
+        }
+        
         
         //calculate remaining sum
         sum += alphabet[0] * 50;

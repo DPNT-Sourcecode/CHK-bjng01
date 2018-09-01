@@ -8,6 +8,7 @@ public class CheckoutSolution {
     	//all declarations are 0;
         int sum = 0;
         int[] alphabet = new int[26];
+        int numGrp = 0;
         
         //iterate over elements:
         
@@ -121,6 +122,9 @@ public class CheckoutSolution {
         		return -1; //invalid input in given string	
         	}
         }//for
+        
+        // will allow a later check to see if applying offer gives the best deal
+        numGrp = alphabet[18] + alphabet[19] + alphabet[23] + alphabet[24] + alphabet[25];
         
         //calculate discounts:
         

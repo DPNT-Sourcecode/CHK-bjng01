@@ -197,13 +197,7 @@ public class CheckoutSolution {
         	sum += 200;
         }
         
-        // Q
-        while (alphabet[16] >=3) {
-        	alphabet[16] -= 3;
-        	sum += 80;
-        }
-     
-        // R
+        // R – order changed to ensure best discount provided
         int cpyNumR = alphabet[17];
         //ensure not less than 0;
         while (cpyNumR >=3) {
@@ -211,6 +205,12 @@ public class CheckoutSolution {
         		alphabet[16] -= 1;
         	}
         	cpyNumR -=3;
+        }
+        
+        // Q
+        while (alphabet[16] >=3) {
+        	alphabet[16] -= 3;
+        	sum += 80;
         }
         
         // U

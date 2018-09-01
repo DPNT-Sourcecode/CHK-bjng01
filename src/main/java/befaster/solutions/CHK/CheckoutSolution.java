@@ -261,11 +261,11 @@ public class CheckoutSolution {
         
         //group items
         int indvSum = 0;
-        indvSum += alphabet[18] * 30;
-        indvSum += alphabet[19] * 20;
-        indvSum += alphabet[23] * 90;
-        indvSum += alphabet[24] * 10;
-        indvSum += alphabet[25] * 50;
+        indvSum += alphabet[18] * 20; //s
+        indvSum += alphabet[19] * 20; //t
+        indvSum += alphabet[23] * 17; //x
+        indvSum += alphabet[24] * 20; //y
+        indvSum += alphabet[25] * 21; //z
         
         int grpSum = 0;
         boolean grpDiscountActive = false;

@@ -254,14 +254,32 @@ public class CheckoutSolution {
         sum += alphabet[15] * 50;
         sum += alphabet[16] * 30;
         sum += alphabet[17] * 50;
-        sum += alphabet[18] * 30;
-        sum += alphabet[19] * 20;
+        
         sum += alphabet[20] * 40;
         sum += alphabet[21] * 50;
         sum += alphabet[22] * 20;
-        sum += alphabet[23] * 90;
-        sum += alphabet[24] * 10;
-        sum += alphabet[25] * 50;
+        
+        //group items
+        int indvSum = 0;
+        indvSum += alphabet[18] * 30;
+        indvSum += alphabet[19] * 20;
+        indvSum += alphabet[23] * 90;
+        indvSum += alphabet[24] * 10;
+        indvSum += alphabet[25] * 50;
+        
+        int grpSum = 0;
+        
+        while (numGrp >= 3) {
+        	grpSum += 45;
+        	numGrp -= 3;
+        }
+        
+        //apply best offer
+        if (grpSum <= indvSum) {
+        	sum += grpSum;
+        } else {
+        	sum += indvSum;
+        }
         
     	return sum;
 

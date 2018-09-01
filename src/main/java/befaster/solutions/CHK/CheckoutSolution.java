@@ -55,10 +55,13 @@ public class CheckoutSolution {
         	numA -= 3;
         	sum += 130;
         }
-        
+        //infinite loop...
+        //need a count of E's
+        int cpyNumE = numE;
         //similarly, E before B
-        while (numE >=2) {
+        while (cpyNumE >=2) {
         	numB -= 1;
+        	cpyNumE -=2;
         	//no sum increase; decrease chargeable B's by 1 for every 2 E's
         }
         

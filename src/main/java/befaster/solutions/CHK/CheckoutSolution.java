@@ -4,40 +4,35 @@ package befaster.solutions.CHK;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        int sum = 0;
-        int numA = 0;
-        int numB = 0;
-        int numC = 0;
-        int numD = 0;
-        int numE = 0;
         
-        Character cA = new Character('A');
-        Character cB = new Character('B');
-        Character cC = new Character('C');
-        Character cD = new Character('D');
-        Character cE = new Character('E');
+    	//all declarations are 0;
+        int sum = 0, numA = 0, numB = 0, numC = 0, numD = 0, numE = 0, numF = 0;
         
         //iterate over elements
         for (int i=0; i<skus.length(); i++) {
         	boolean inOK = false;
-        	if (skus.charAt(i) == cA) {
+        	if (skus.charAt(i) == new Character('A')) {
         		numA++;
         		inOK = true;
         	}
-        	if (skus.charAt(i) == cB) {
+        	if (skus.charAt(i) == new Character('B')) {
         		numB++;
         		inOK = true;
         	}
-        	if (skus.charAt(i) == cC) {
+        	if (skus.charAt(i) == new Character('C')) {
         		numC++;
         		inOK = true;
         	}
-        	if (skus.charAt(i) == cD) {
+        	if (skus.charAt(i) == new Character('D')) {
         		numD++;
         		inOK = true;
         	}
-        	if (skus.charAt(i) == cE) {
+        	if (skus.charAt(i) == new Character('E')) {
         		numE++;
+        		inOK = true;
+        	}
+        	if (skus.charAt(i) == new Character('F')) {
+        		numF++;
         		inOK = true;
         	}
         	if (inOK == false ) {	
@@ -73,12 +68,19 @@ public class CheckoutSolution {
         	sum += 45;
         }
         
+        //code applies discount in same way as for A, B etc despite rewording for customers
+        while (numF >= 3) {
+        	numF -= 3;
+        	sum += 10*2;
+        }
+        
         //calculate remaining sum
         sum += numA * 50;
         sum += numB * 30;
         sum += numC * 20;
         sum += numD * 15;
         sum += numE * 40;
+        sum += numF * 10;
         
     	return sum;
 

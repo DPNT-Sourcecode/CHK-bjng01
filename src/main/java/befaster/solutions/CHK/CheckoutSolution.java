@@ -6,10 +6,11 @@ public class CheckoutSolution {
     public Integer checkout(String skus) {
         
     	//all declarations are 0;
-        int sum = 0, numA = 0, numB = 0, numC = 0, numD = 0, numE = 0, numF = 0;
+        int sum = 0;
         int[] alphabet = new int[26];
         
-        //iterate over elements
+        //iterate over elements:
+        
         for (int i=0; i<skus.length(); i++) {
         	boolean inOK = false;
         	if (skus.charAt(i) == new Character('A')) {
@@ -121,7 +122,8 @@ public class CheckoutSolution {
         	}
         }//for
         
-        //calculate discounts
+        //calculate discounts:
+        
         //this is first to give the best deal to customers
         // A
         while (alphabet[0] >=5) {
@@ -179,8 +181,57 @@ public class CheckoutSolution {
         	sum += 150;
         }
         
+        // N
+        int cpyNumN = alphabet[13];
+        //ensure not less than 0;
+        while (cpyNumN >=3) {
+        	if (alphabet[12] >= 1) {
+        		alphabet[12] -= 1;
+        	}
+        	cpyNumN -=3;
+        }
         
-        //calculate remaining sum
+        // P
+        while (alphabet[15] >=5) {
+        	alphabet[15] -= 5;
+        	sum += 200;
+        }
+        
+        // Q
+        while (alphabet[16] >=3) {
+        	alphabet[16] -= 3;
+        	sum += 80;
+        }
+     
+        // R
+        int cpyNumR = alphabet[17];
+        //ensure not less than 0;
+        while (cpyNumR >=3) {
+        	if (alphabet[16] >= 1) {
+        		alphabet[16] -= 1;
+        	}
+        	cpyNumR -=3;
+        }
+        
+        // U
+        while (alphabet[20] >= 4) {
+        	alphabet[20] -= 4;
+        	sum += (3 * 40);
+        }
+        
+        // V
+        while (alphabet[21] >=3) {
+        	alphabet[21] -= 3;
+        	sum += 130;
+        }
+        
+        while (alphabet[21] >=2) {
+        	alphabet[21] -= 2;
+        	sum += 90;
+        }
+        
+        //calculate remaining sum:
+        
         sum += alphabet[0] * 50;
         sum += alphabet[1] * 30;
         sum += alphabet[2] * 20;

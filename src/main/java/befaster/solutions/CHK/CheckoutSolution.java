@@ -39,6 +39,7 @@ public class CheckoutSolution {
         		return -1; //invalid input in given string	
         	}
         }//for
+        
         //calculate discounts
         //this is first to give the best deal to customers
         while (numA >=5) {
@@ -50,6 +51,7 @@ public class CheckoutSolution {
         	numA -= 3;
         	sum += 130;
         }
+        
         //infinite loop...
         //need a copy of count of E's
         int cpyNumE = numE;
@@ -71,7 +73,7 @@ public class CheckoutSolution {
         //code applies discount in same way as for A, B etc despite rewording for customers
         while (numF >= 3) {
         	numF -= 3;
-        	sum += 10*2;
+        	sum += (10 * 2);
         }
         
         //calculate remaining sum

@@ -259,31 +259,52 @@ public class CheckoutSolution {
         sum += alphabet[21] * 50;
         sum += alphabet[22] * 20;
         
-        //group items
-        int indvSum = 0;
-        indvSum += alphabet[18] * 20; //s
-        indvSum += alphabet[19] * 20; //t
-        indvSum += alphabet[23] * 17; //x
-        indvSum += alphabet[24] * 20; //y
-        indvSum += alphabet[25] * 21; //z
+        //group items:
+        //need to account for a basket with group items not divisible by 3
+        //and putting the most expensive items in the deal 
         
-        int grpSum = 0;
-        boolean grpDiscountActive = false;
-        if (numGrp >= 3) {
-        	grpDiscountActive = true;
+        int[] ingroup = new int[5];
+        int[] outgroup = new int[5];
+        
+        //copy values for manipulation
+        ingroup[0] = alphabet[18];
+        ingroup[1] = alphabet[19];
+        ingroup[2] = alphabet[23];
+        ingroup[3] = alphabet[24];
+        ingroup[4] = alphabet[25];
+        
+        while (numGrp > 0 && numGrp %3 != 0) {
+        	//move items from in-group to out-group in cost order
+        	// start -> 25, 24,19, 18, 23 -> end
+        	if (ingroup[4] > 0) {
+        		outgroup[4] += 1;
+        		ingroup[4] -= 1;
+        	} else if (ingroup[3] > 0) {
+        		outgroup[3] += 1;
+        		ingroup[3] -= 1;
+        	} else if (ingroup[1] > 0) {
+        		outgroup[1] += 1;
+        		ingroup[1] -= 1;
+        	} else if (ingroup[0] > 0) {
+        		outgroup[0] += 1;
+        		ingroup[0] -= 1;
+        	} else {
+        		outgroup[2] += 1;
+        		ingroup[2] -= 1;
+        	}
+        	
+        	numGrp -= 1;
         }
         
-        while (numGrp >= 3) {
-        	grpSum += 45;
-        	numGrp -= 3;
-        }
+        int grpSum = (numGrp / 3) * 45;
+        int leftoverSum = (outgroup[0] * 20) + 
+        				  (outgroup[1] * 20) +
+        				  (outgroup[2] * 17) + 
+        				  (outgroup[3] * 20) + 
+        				  (outgroup[4] * 21);
         
-        //apply best offer
-        if (grpSum <= indvSum && grpDiscountActive) { //need this or we use grpSum = 0
-        	sum += grpSum;
-        } else {
-        	sum += indvSum;
-        }
+        //combine group discount and leftover item prices
+        sum += grpSum += leftoverSum;
         
     	return sum;
 

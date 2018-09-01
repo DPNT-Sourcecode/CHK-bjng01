@@ -275,10 +275,12 @@ public class CheckoutSolution {
         
         while (numGrp > 0 && numGrp %3 != 0) {
         	//move items from in-group to out-group in cost order
+        	// move CHEAPEST item OUT first
         	// start -> 25, 24,19, 18, 23 -> end
-        	if (ingroup[4] > 0) {
-        		outgroup[4] += 1;
-        		ingroup[4] -= 1;
+        	
+        	if (ingroup[2] > 0) {
+        		outgroup[2] += 1;
+        		ingroup[2] -= 1;
         	} else if (ingroup[3] > 0) {
         		outgroup[3] += 1;
         		ingroup[3] -= 1;
@@ -289,8 +291,8 @@ public class CheckoutSolution {
         		outgroup[0] += 1;
         		ingroup[0] -= 1;
         	} else {
-        		outgroup[2] += 1;
-        		ingroup[2] -= 1;
+        		outgroup[4] += 1;
+        		ingroup[4] -= 1;
         	}
         	
         	numGrp -= 1;
